@@ -14,7 +14,7 @@
   <parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.4.1</version>
+		<version>2.6.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
   
@@ -28,6 +28,15 @@
   </properties>
   
   <dependencies>
+  <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
   <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
 <dependency>
     <groupId>org.springframework.boot</groupId>
@@ -70,9 +79,14 @@
         <plugin>
             <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-maven-plugin</artifactId>
-            <version>1.2.7.RELEASE</version>
             <configuration>
-                <mainClass>com.amanuel.aregay.WebApplication</mainClass>
+                <mainClass>com.amanuel.aregay.DistributerWebApplication</mainClass>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
             </configuration>
         </plugin>
     </plugins>
